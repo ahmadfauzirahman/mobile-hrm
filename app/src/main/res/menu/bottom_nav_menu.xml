@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/ic_dashboard_black_24dp"
+        android:title="Dashboard" />
+
+    <item
+        android:id="@+id/history_absen"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="Log Absen" />
+
+    <item
+        android:id="@+id/profile_saya"
+        android:icon="@drawable/ic_account_circle_black_24dp"
+        android:title="Profile" />
+
+</menu>
