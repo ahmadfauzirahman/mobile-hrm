@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".Activity.DetailMyTeamActivity">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_photo_detail"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/user"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>
+
+    <TextView
+        android:id="@+id/tv_nama_lengkap_detail"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/civ_photo_detail"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textSize="21sp"
+        android:text="NAMA LENGKAP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_nip_detail"
+        android:layout_below="@+id/tv_nama_lengkap_detail"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:text="NIP.12378746268"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+    <view
+        android:id="@+id/view01"
+        android:layout_below="@+id/tv_nip_detail"
+        android:layout_marginTop="4dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"/>
+
+    <TextView
+        android:id="@+id/tv_tempat_lahir_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view01"
+        android:text="Tempat Lahir" />
+
+    <TextView
+        android:id="@+id/tv_tanggal_lahir_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_tempat_lahir_detail"
+        android:text="Tanggal Lahir" />
+
+    <TextView
+        android:id="@+id/tv_jenis_kelamin_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_tanggal_lahir_detail"
+        android:text="Jenis Kelamin" />
+
+    <TextView
+        android:id="@+id/tv_agama_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_jenis_kelamin_detail"
+        android:text="Agama" />
+
+    <TextView
+        android:id="@+id/tv_status_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_agama_detail"
+        android:text="Status" />
+
+    <TextView
+        android:id="@+id/tv_alamat_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_status_detail"
+        android:text="Alamat" />
+
+    <TextView
+        android:id="@+id/tv_no_telefon_detail"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_alamat_detail"
+        android:text="No. Telefon" />
+
+    <TextView
+        android:id="@+id/river"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@id/tv_jenis_kelamin_detail"
+        android:text="."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/view01"
+        android:text="Pekanbaru"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/river"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

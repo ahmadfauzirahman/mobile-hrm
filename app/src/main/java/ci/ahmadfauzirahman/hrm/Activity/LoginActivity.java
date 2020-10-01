@@ -61,8 +61,10 @@ public class LoginActivity extends AppCompatActivity {
         apiService.login(kodeAkun, password).enqueue(new Callback<UserResponse>() {
             @Override
             public void onResponse(Call<UserResponse> call, Response<UserResponse> response) {
+                System.out.println("sad" +  response.body().toString());
                 if (response.isSuccessful()) {
                     Boolean success = response.body().getCon();
+                    System.out.println("dapat" + success);
                     if (success) {
                         UserModel userModel = response.body().getResults();
                         sessionManager.createLoginSession(userModel);

@@ -19,5 +19,6 @@
 
     <string name="map_key">AIzaSyCYCQmU7s8YUEOb7v2-yh2ywAcRMxs6OUI</string>
     <string name="map_key2" templateMergeStrategy="preserve" translatable="false">AIzaSyArirdNnJ-ekSdArK8eC_jIwbXQjQdnj7s</string>
+    <string name="my_team">MY TEAM</string>
 
 </resources>
