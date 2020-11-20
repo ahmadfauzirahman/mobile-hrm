@@ -1,6 +1,7 @@
 package ci.ahmadfauzirahman.hrm.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,7 +39,7 @@ public class AbsenAdapter extends RecyclerView.Adapter<AbsenAdapter.AdapterViewH
 
     @Override
     public void onBindViewHolder(@NonNull AdapterViewHolder holder, int position) {
-        holder.midTbAbsensi.setText(logAbsensiModels.get(position).getIdAbsensi());
+        holder.midTbAbsensi.setText(logAbsensiModels.get(position).getIdAbsensi().toString());
         holder.id_pegawai.setText(logAbsensiModels.get(position).getIdPegawai());
         holder.nipPegawai.setText(logAbsensiModels.get(position).getNip());
         holder.lat.setText(logAbsensiModels.get(position).getLat());
@@ -47,6 +49,7 @@ public class AbsenAdapter extends RecyclerView.Adapter<AbsenAdapter.AdapterViewH
         holder.status_hadir.setText(logAbsensiModels.get(position).getStatusMasuk());
         holder.jam_masuk.setText(logAbsensiModels.get(position).getJamMasuk());
 
+
     }
 
     @Override
@@ -55,12 +58,14 @@ public class AbsenAdapter extends RecyclerView.Adapter<AbsenAdapter.AdapterViewH
     }
 
     public class AdapterViewHolder extends RecyclerView.ViewHolder {
-        TextView midTbAbsensi, id_pegawai, nipPegawai, lat, lng, status, hari_masuk, status_hadir,jam_masuk;
+        TextView midTbAbsensi, id_pegawai, nipPegawai, lat, lng, status, hari_masuk, status_hadir, jam_masuk;
         LinearLayout lnLogAbsensi;
+        CardView cardLogAbsensi;
 
         public AdapterViewHolder(@NonNull View itemView) {
             super(itemView);
             lnLogAbsensi = itemView.findViewById(R.id.lnLogAbsensi);
+            cardLogAbsensi = itemView.findViewById(R.id.cardLogAbsensi);
             midTbAbsensi = itemView.findViewById(R.id.midTbAbsensi);
             id_pegawai = itemView.findViewById(R.id.id_pegawai);
             nipPegawai = itemView.findViewById(R.id.nipPegawai);

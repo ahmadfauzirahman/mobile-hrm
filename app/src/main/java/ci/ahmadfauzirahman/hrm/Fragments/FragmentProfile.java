@@ -82,7 +82,13 @@ public class FragmentProfile extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), LoginActivity.class);
+                sessionManager.logoutUser();
+                Intent i = new Intent(getContext(), LoginActivity.class);
+                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+
+
+
             }
         });
 

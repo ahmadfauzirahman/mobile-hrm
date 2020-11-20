@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lnPegawai"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="72dp"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_margin"
+    android:paddingTop="@dimen/row_padding"
+    android:paddingRight="@dimen/activity_margin"
+    android:paddingBottom="@dimen/row_padding">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/thumbnail"
+            android:layout_width="@dimen/thumbnail"
+            android:layout_height="@dimen/thumbnail"
+
+            android:background="@color/placeholder_bg"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/row_padding"
+        />
+
+        <View
+            android:id="@+id/mnamaPegawai"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/placeholder_text_height"
+            android:layout_toRightOf="@id/thumbnail"
+            android:fontFamily="sans-serif-medium"
+            android:background="@color/placeholder_bg"
+
+            android:textColor="@color/contact_name"
+            android:textSize="@dimen/contact_name" />
+
+        <View
+            android:id="@+id/mNipNikPegawai"
+            android:layout_width="wrap_content"
+            android:background="@color/placeholder_bg"
+            android:layout_marginTop="10dp"
+            android:layout_height="@dimen/placeholder_text_height"
+            android:layout_below="@id/mnamaPegawai"
+            android:layout_toRightOf="@id/thumbnail"
+            android:textColor="@color/contact_number"
+            android:textSize="@dimen/contact_number" />
+    </RelativeLayout>
+</LinearLayout>

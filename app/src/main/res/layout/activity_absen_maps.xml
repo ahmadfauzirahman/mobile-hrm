@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            tools:context=".Activity.ModulAbsensi.AbsenMapsActivity" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardLogAbsensi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="8dp"
+                app:cardCornerRadius="6dp"
+                app:cardPreventCornerOverlap="true">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <TextView
+                        android:id="@+id/djadwalKerja"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="@dimen/row_padding"
+                        android:fontFamily="@font/robotobold"
+                        android:text="Jadwal Kerja"
+                        android:textColor="#000"
+                        android:textSize="15dp" />
+
+                    <TextView
+                        android:id="@+id/disiJadwalKerja"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@id/djadwalKerja"
+                        android:fontFamily="@font/robotomedium"
+                        android:text="Sen, 5 Oktober 2020"
+                        android:textSize="15dp">
+
+                    </TextView>
+
+                    <TextView
+                        android:id="@+id/dWaktuRangeKerja"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/djadwalKerja"
+                        android:layout_marginTop="@dimen/mar_20"
+                        android:fontFamily="@font/robotoblack"
+                        android:gravity="center"
+                        android:text="07:30 AM . 15:00 PM"
+                        android:textColor="#000"
+                        android:textSize="25dp"></TextView>
+
+                    <TextView
+                        android:id="@+id/dJamKerjaKeterangan"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/dWaktuRangeKerja"
+                        android:layout_marginTop="@dimen/mar_20"
+                        android:fontFamily="@font/robotomedium"
+                        android:gravity="center"
+                        android:text="Office Hours"
+                        android:textSize="17dp"></TextView>
+
+                    <View
+                        android:id="@+id/garis"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_below="@+id/dJamKerjaKeterangan"
+                        android:layout_marginTop="@dimen/mar_10"
+                        android:background="#000000"
+                        android:visibility="visible" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/garis"
+                        android:layout_marginTop="@dimen/mar_10"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/mar_10">
+
+                        <Button
+                            android:id="@+id/chekIn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="@dimen/mar_10"
+                            android:background="#7FA2FA"
+                            android:text="Check In"
+                            android:textColor="@color/white"></Button>
+
+                        <Button
+                            android:id="@+id/chekOut"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/placeholder_bg"
+                            android:text="Check Out"
+                            android:textColor="#000">
+
+                        </Button>
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

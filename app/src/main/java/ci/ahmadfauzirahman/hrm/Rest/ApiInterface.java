@@ -1,7 +1,9 @@
 package ci.ahmadfauzirahman.hrm.Rest;
 
 
+import ci.ahmadfauzirahman.hrm.Response.AbsensiResponse;
 import ci.ahmadfauzirahman.hrm.Response.LogAbsensiResponse;
+import ci.ahmadfauzirahman.hrm.Response.PegawaiResponse;
 import ci.ahmadfauzirahman.hrm.Response.UserResponse;
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -22,12 +24,26 @@ public interface ApiInterface {
     );
 
     @FormUrlEncoded
-    @POST("v1/absen/ambil-data-absen")
+    @POST("v1/absensi/ambil-data-absen")
     Call<LogAbsensiResponse> list_absensi(
             @Field("kode") String kode
     );
 
-    /*@FormUrlEncoded
+    @FormUrlEncoded
+    @POST("v1/pegawai/index")
+    Call<PegawaiResponse> getStrukturInstansi(
+            @Field("nipnik") String kode
+    );
+
+    @FormUrlEncoded
+    @POST("v1/absensi/simpan-absen")
+    Call<AbsensiResponse> absenMasuk(
+            @Field("kode") String kode,
+            @Field("lat") String lat,
+            @Field("long") String lng
+    );
+    /*
+    @FormUrlEncoded
     @POST("v1/service/login")
     Call<LoginResponse> login(
             @Field("kode") String kode,
@@ -157,7 +173,6 @@ public interface ApiInterface {
             @Field("nomor_skpp") String nomor_skpp
     );
 */
-
 
 
 }

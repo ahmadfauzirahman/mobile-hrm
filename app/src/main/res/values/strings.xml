@@ -19,5 +19,12 @@
 
     <string name="map_key">AIzaSyCYCQmU7s8YUEOb7v2-yh2ywAcRMxs6OUI</string>
     <string name="map_key2" templateMergeStrategy="preserve" translatable="false">AIzaSyArirdNnJ-ekSdArK8eC_jIwbXQjQdnj7s</string>
+    <string name="title_activity_absensi">Map</string>
+
+
+    <string name="next">LANJUT</string>
+    <string name="skip">LEWATI</string>
+    <string name="start">MULAI</string>
+    <string name="title_activity_absen_maps">Map</string>
 
 </resources>

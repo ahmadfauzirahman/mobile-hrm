@@ -1,13 +1,19 @@
 package ci.ahmadfauzirahman.hrm.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import ci.ahmadfauzirahman.hrm.Activity.DetailPage.DetailMyTeamActivity;
+import ci.ahmadfauzirahman.hrm.Activity.IKI.IkiActivity;
+import ci.ahmadfauzirahman.hrm.Activity.ModulAbsensi.OptionsAbsenActivity;
 import ci.ahmadfauzirahman.hrm.R;
 
 /**
@@ -24,7 +30,10 @@ public class FragmentDashboard extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-View view;
+    View view;
+    CardView cardAmbilAbsensi,cardStruktur,cardIki;
+    LinearLayout logo;
+
     public FragmentDashboard() {
         // Required empty public constructor
     }
@@ -61,7 +70,34 @@ View view;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
+        cardAmbilAbsensi = view.findViewById(R.id.cardAmbilAbsensi);
+        cardStruktur = view.findViewById(R.id.cardStruktur);
+        cardIki = view.findViewById(R.id.cardIki);
         System.out.println("Ini Dashboard");
+
+
+        cardIki.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), IkiActivity.class);
+                startActivity(intent);
+            }
+        });
+        cardStruktur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), DetailMyTeamActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        cardAmbilAbsensi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                    Intent intent = new Intent(getContext(), OptionsAbsenActivity.class);
+                startActivity(intent);
+            }
+        });
         return view;
     }
 }

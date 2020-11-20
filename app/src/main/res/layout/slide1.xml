@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/pic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/ic_intro_2" />
+
+    <LinearLayout
+        android:id="@+id/parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="21dp"
+        android:layout_marginBottom="65dp"
+        android:background="@drawable/bgx_btn_white_rounded"
+        android:orientation="vertical"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/robotoitalic"
+            android:lineSpacingExtra="5sp"
+            android:text="Melihat Dimana Saja"
+            android:textAlignment="center"
+            android:textColor="#0e1f37"
+            android:textSize="28sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="@font/robotolight"
+            android:lineSpacingExtra="5sp"
+            android:text="Melihat Dimana Saja, Kapan Pun"
+            android:textAlignment="center"
+            android:textColor="#600e1f37"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</RelativeLayout>

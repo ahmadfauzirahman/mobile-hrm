@@ -5,9 +5,11 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#7FA2FA</item>
         <item name="colorPrimaryDark">#A0B9FC</item>
-        <item name="colorAccent">@android:color/holo_purple</item>
+        <item name="colorAccent">#ffaa66</item>
     </style>
 
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

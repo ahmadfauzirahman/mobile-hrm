@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 //                        progressBar.setVisibility(View.GONE);
                     } else {
                         Log.d(TAG, "onResponsePassword: Password Salah & Username Salah");
-                        Toast.makeText(getApplicationContext(), "Password Atau Username", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Password Atau Username Salah", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                         startActivity(intent);
                     }

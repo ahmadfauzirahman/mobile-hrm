@@ -8,10 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
+
+import java.util.List;
+
+import ci.ahmadfauzirahman.hrm.Adapters.AbsenAdapter;
+import ci.ahmadfauzirahman.hrm.Model.LogAbsensiModel;
 import ci.ahmadfauzirahman.hrm.R;
 import ci.ahmadfauzirahman.hrm.Response.LogAbsensiResponse;
 import ci.ahmadfauzirahman.hrm.Rest.ApiClient;
@@ -45,6 +53,7 @@ public class FragmentLogAbsensi extends Fragment {
     ApiInterface apiService =
             ApiClient.getClient().create(ApiInterface.class);
     Intent intent;
+    private ShimmerFrameLayout mShimmerViewContainer;
 
     public FragmentLogAbsensi() {
         // Required empty public constructor
@@ -89,9 +98,20 @@ public class FragmentLogAbsensi extends Fragment {
 
         swipeRefreshLayout = view.findViewById(R.id.swpLogAbsensi);
         recyclerView = (RecyclerView) view.findViewById(R.id.reyLogAbsensi);
+        mShimmerViewContainer = view.findViewById(R.id.shimmer_view_container);
 
 
         getAllLogAbsensi(kode);
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // loading = ProgressDialog.show(context,null,"Sedang mendapatkan berita",true,false);
+                swipeRefreshLayout.setRefreshing(false);
+                getAllLogAbsensi(kode);
+
+            }
+        });
         return view;
     }
 
@@ -99,16 +119,40 @@ public class FragmentLogAbsensi extends Fragment {
         final RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.reyLogAbsensi);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        Log.e(TAG, "Kode" + kode);
 
         apiService.list_absensi(kode).enqueue(new Callback<LogAbsensiResponse>() {
             @Override
             public void onResponse(Call<LogAbsensiResponse> call, Response<LogAbsensiResponse> response) {
 
+                if (response.body().getCon()) {
+                    Log.e(TAG, "OnResponse Url" + response.toString());
+                    System.out.println("OnResponse Data" + response.body().toString());
+
+                    if (response.isSuccessful()) {
+                        List<LogAbsensiModel> logAbsensiModels = response.body().getResults();
+                        recyclerView.setAdapter(new AbsenAdapter(logAbsensiModels, R.layout.list_log_absen, getContext()));
+                        mShimmerViewContainer.stopShimmerAnimation();
+                        mShimmerViewContainer.setVisibility(View.GONE);
+                    } else {
+                        System.out.println("OnResponse Data" + response.body().toString());
+                        Log.e(TAG, "OnError" + response.body().toString());
+
+                        Toast.makeText(getContext(), "Tidak Terhubung KeJaringan", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Data Not Found", Toast.LENGTH_SHORT).show();
+                    mShimmerViewContainer.stopShimmerAnimation();
+                    mShimmerViewContainer.setVisibility(View.GONE);
+                }
+
             }
 
             @Override
             public void onFailure(Call<LogAbsensiResponse> call, Throwable t) {
-
+                Log.e(TAG, "OnError " + t.getLocalizedMessage());
+                System.out.println("Error Aplikasi" +
+                        "" + t.getLocalizedMessage());
             }
         });
     }

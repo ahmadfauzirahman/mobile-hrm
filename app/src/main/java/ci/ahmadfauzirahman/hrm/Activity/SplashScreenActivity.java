@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 
+import ci.ahmadfauzirahman.hrm.Activity.IntroSlider.BoardingActivity;
 import ci.ahmadfauzirahman.hrm.R;
 
 public class SplashScreenActivity extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), BoardingActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
                 //  SplashActivity.this.finish();

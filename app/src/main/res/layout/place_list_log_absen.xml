@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lnLogAbsensi"
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <View
+                        android:id="@+id/hari_masuk"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/placeholder_text_height"
+                        android:fontFamily="@font/robotobold"
+                        android:textColor="#000"
+                        android:background="@color/placeholder_bg"
+                        android:textSize="19dp" />
+
+
+                    <View
+                        android:id="@+id/jam_masuk"
+                        android:layout_width="125dp"
+
+                        android:layout_height="@dimen/placeholder_text_height"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/robotolight"
+                        android:text="07:30 PM"
+                        android:textColor="#000"
+                        android:background="@color/placeholder_bg"
+                        android:textSize="19dp" />
+
+                    <TextView
+                        android:id="@+id/status_hadir"
+                        android:layout_width="59dp"
+
+                        android:layout_height="@dimen/placeholder_text_height"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/robotolight"
+                        android:background="@color/placeholder_bg"
+                        android:textColor="#000"
+                        android:textSize="19dp" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+</LinearLayout>

@@ -4,9 +4,6 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class AbsensiModel {
-    @SerializedName("id_tb_absensi")
-    @Expose
-    private Integer idTbAbsensi;
     @SerializedName("id_pegawai")
     @Expose
     private String idPegawai;
@@ -31,14 +28,12 @@ public class AbsensiModel {
     @SerializedName("status")
     @Expose
     private String status;
-
-    public Integer getIdTbAbsensi() {
-        return idTbAbsensi;
-    }
-
-    public void setIdTbAbsensi(Integer idTbAbsensi) {
-        this.idTbAbsensi = idTbAbsensi;
-    }
+    @SerializedName("id_tb_absensi")
+    @Expose
+    private Integer idTbAbsensi;
+    @SerializedName("how")
+    @Expose
+    private String how;
 
     public String getIdPegawai() {
         return idPegawai;
@@ -102,5 +97,21 @@ public class AbsensiModel {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public Integer getIdTbAbsensi() {
+        return idTbAbsensi;
+    }
+
+    public void setIdTbAbsensi(Integer idTbAbsensi) {
+        this.idTbAbsensi = idTbAbsensi;
+    }
+
+    public String getHow() {
+        return how;
+    }
+
+    public void setHow(String how) {
+        this.how = how;
     }
 }

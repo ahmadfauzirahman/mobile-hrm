@@ -1,0 +1,127 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context=".Fragments.FragmentDashboard">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:columnCount="1"
+                android:columnOrderPreserved="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:rowCount="4"
+                android:scrollbars="vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardAmbilAbsenByLokasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/gradient_white"
+                        android:gravity="center"
+
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/map" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/robotomedium"
+                            android:text="ABSENSI BY LOKASI" />
+                        <TextView
+                            android:id="@+id/txtLocation"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:visibility="invisible"
+
+                            android:textColor="#000" />
+                        <TextView
+                            android:layout_width="0dp"
+                            android:id="@+id/dLatitude"
+                            android:visibility="invisible"
+
+                            android:layout_height="0dp">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:id="@+id/dLongitude"
+                            android:visibility="invisible"
+                            android:layout_height="0dp">
+
+                        </TextView>
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="270dp"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="12dp"
+                    app:cardElevation="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/gradient_white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="12dp"
+                            android:src="@drawable/qrcode" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/robotomedium"
+                            android:text="ABSENSI BARCODE" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </GridLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</FrameLayout>
