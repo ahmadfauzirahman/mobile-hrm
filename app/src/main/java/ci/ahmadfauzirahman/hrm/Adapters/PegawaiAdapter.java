@@ -1,4 +1,4 @@
-xpackage ci.ahmadfauzirahman.hrm.Adapters;
+package ci.ahmadfauzirahman.hrm.Adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;

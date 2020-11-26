@@ -31,6 +31,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 
 import java.util.Locale;
 
+import ci.ahmadfauzirahman.hrm.Activity.MainActivity;
 import ci.ahmadfauzirahman.hrm.R;
 import ci.ahmadfauzirahman.hrm.Utils.AppConstants;
 import ci.ahmadfauzirahman.hrm.Utils.GpsUtils;
@@ -58,6 +59,11 @@ public class OptionsAbsenActivity extends AppCompatActivity {
     TextView dLatitude, dLongitude;
     CardView cardAmbilAbsenByLokasi, cardMap;
     private ProgressDialog pDialog;
+    // Defining Permission codes.
+    // We can give any value
+    // but unique for each permission.
+    private static final int CAMERA_PERMISSION_CODE = 100;
+    private static final int STORAGE_PERMISSION_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -122,7 +128,7 @@ public class OptionsAbsenActivity extends AppCompatActivity {
                 pDialog = new ProgressDialog(OptionsAbsenActivity.this);
                 pDialog.setCancelable(false);
                 pDialog.setMax(100);
-                pDialog.setMessage("Mohon menunggu, Sedang Menyiapkan Map");
+                pDialog.setMessage("Mohon menunggu, Sedang Menyiapkan Aplikasi");
                 pDialog.show();
 
                 Handler handler = new Handler();
@@ -143,10 +149,29 @@ public class OptionsAbsenActivity extends AppCompatActivity {
         cardMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                checkPermission(Manifest.permission.CAMERA,
+                        CAMERA_PERMISSION_CODE);
                 startActivity(new Intent(getApplicationContext(), AbsenScannerActivity.class));
             }
         });
     }
+
+    // Function to check and request permission.
+    public void checkPermission(String permission, int requestCode) {
+        if (ContextCompat.checkSelfPermission(OptionsAbsenActivity.this, permission)
+                == PackageManager.PERMISSION_DENIED) {
+            // Requesting the permission
+            ActivityCompat.requestPermissions(OptionsAbsenActivity.this,
+                    new String[]{permission},
+                    requestCode);
+        } else {
+            Toast.makeText(OptionsAbsenActivity.this,
+                    "Permission already granted",
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
+    }
+
 
     private void getLocation() {
         if (ActivityCompat.checkSelfPermission(OptionsAbsenActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
@@ -160,6 +185,7 @@ public class OptionsAbsenActivity extends AppCompatActivity {
                 mFusedLocationClient.requestLocationUpdates(locationRequest, locationCallback, null);
             } else {
                 mFusedLocationClient.getLastLocation().addOnSuccessListener(OptionsAbsenActivity.this, new OnSuccessListener<Location>() {
+                    @SuppressLint("MissingPermission")
                     @Override
                     public void onSuccess(Location location) {
                         if (location != null) {
@@ -208,6 +234,23 @@ public class OptionsAbsenActivity extends AppCompatActivity {
                 }
                 break;
             }
+            case CAMERA_PERMISSION_CODE: {
+//                if (requestCode == CAMERA_PERMISSION_CODE) {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(OptionsAbsenActivity.this,
+                            "Camera Permission Granted",
+                            Toast.LENGTH_SHORT)
+                            .show();
+                } else {
+                    Toast.makeText(OptionsAbsenActivity.this,
+                            "Camera Permission Denied",
+                            Toast.LENGTH_SHORT)
+                            .show();
+                }
+//                }
+                break;
+            }
         }
     }
 
@@ -219,5 +262,16 @@ public class OptionsAbsenActivity extends AppCompatActivity {
                 isGPS = true; // flag maintain before get location
             }
         }
+    }
+
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(intent);
+    }
+
+
+    private void openCamera() {
+        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+        startActivity(intent);
     }
 }

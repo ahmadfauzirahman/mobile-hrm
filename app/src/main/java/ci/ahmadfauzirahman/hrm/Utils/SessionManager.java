@@ -50,6 +50,7 @@ public class SessionManager {
         editor.putString(ROLE,user.getRole());
         editor.putString(ID_PEGAWAI,user.getIdPegawai().toString());
         editor.putString(NAMA,user.getNama());
+        editor.putString(TANGGAL_PENDAFTARAN,user.getTanggalPendaftaran());
         editor.commit();
     }
 
@@ -61,6 +62,7 @@ public class SessionManager {
         user.put(ROLE, sharedPreferences.getString(ROLE,null));
         user.put(ID_PEGAWAI, sharedPreferences.getString(ID_PEGAWAI,null));
         user.put(NAMA, sharedPreferences.getString(NAMA,null));
+        user.put(TANGGAL_PENDAFTARAN, sharedPreferences.getString(TANGGAL_PENDAFTARAN,null));
         return user;
     }
 

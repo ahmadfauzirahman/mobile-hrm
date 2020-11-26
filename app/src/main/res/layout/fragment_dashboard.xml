@@ -23,9 +23,9 @@
             <GridLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
                 android:layout_centerInParent="true"
                 android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
                 android:columnCount="1"
                 android:columnOrderPreserved="false"
                 android:gravity="center"
@@ -45,8 +45,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient_holo_pink_cate"
                         android:layout_gravity="center_horizontal|center_vertical"
+                        android:background="@drawable/gradient_holo_pink_cate"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -59,9 +59,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/white"
-                            android:fontFamily="@font/robotomedium"
-                            android:text="EMPLOYEE" />
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:text="EMPLOYEE"
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
@@ -75,7 +75,6 @@
                     app:cardElevation="5dp">
 
                     <LinearLayout
-
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/gradient_holo_brown_category"
@@ -92,75 +91,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="@color/white"
-                            android:text="ABSEN" />
+                            android:fontFamily="@font/quicksandsemibold"
+                            android:text="ABSEN"
+                            android:textColor="@color/white" />
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardIki"
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="5dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/gradient_holo_yallow"
-
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_margin="12dp"
-                            android:src="@drawable/teacher" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="@color/white"
-                            android:text="IKI" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="170dp"
-                    android:layout_margin="10dp"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:background="@drawable/gradient_sky_blue"
-
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
-                            android:layout_margin="12dp"
-                            android:src="@drawable/userinterface" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/robotomedium"
-                            android:textColor="@color/white"
-                            android:text="APPS" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
             </GridLayout>
         </LinearLayout>
 

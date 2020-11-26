@@ -65,7 +65,7 @@
                         android:id="@+id/hari_masuk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/robotobold"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:text="Senin"
                         android:textColor="#000"
                         android:textSize="19dp" />
@@ -76,7 +76,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/robotolight"
+                        android:fontFamily="@font/quicksandlight"
                         android:text="07:30 PM"
                         android:textColor="#000"
                         android:textSize="19dp" />
@@ -86,7 +86,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="4dp"
-                        android:fontFamily="@font/robotolight"
+                        android:fontFamily="@font/quicksandlight"
                         android:text="Hadir"
                         android:textColor="#000"
                         android:textSize="19dp" />

@@ -44,10 +44,12 @@
                 android:layout_toRightOf="@id/profileCircleImageView"
                 android:text="Edit personal details"
                 android:textColor="#5D5C5C"
+                android:id="@+id/editProfileLogin"
                 android:textSize="16sp" />
 
             <ImageView
                 style="@style/viewParent"
+                android:id="@+id/editProfileLoginArrow"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_more" />
@@ -62,16 +64,18 @@
 
         <TextView
             style="@style/viewParent.headerText.settingsMiniTitle"
-            android:text="Profile" />
+            tools:text="Profile" />
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             android:drawableLeft="@drawable/ic_edit_profile"
-            android:text="Edit Profile" />
+            android:id="@+id/profilePegawai"
+            android:text="Data Pegawai" />
 
         <TextView
             style="@style/viewParent.headerText.settingsTextIcon"
             android:layout_marginTop="10dp"
+            android:id="@+id/changePassword"
             android:drawableLeft="@drawable/ic_edit_password"
             android:text="Change Password" />
 

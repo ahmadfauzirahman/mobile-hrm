@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HRM</string>
+    <string name="app_name">MIRAI SIMPERSA</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -26,5 +26,6 @@
     <string name="skip">LEWATI</string>
     <string name="start">MULAI</string>
     <string name="title_activity_absen_maps">Map</string>
+    <string name="xxxxxx">xxxxxx</string>
 
 </resources>

@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class ModelPegawai {
+
     @SerializedName("pegawai_id")
     @Expose
     private Integer pegawaiId;
@@ -57,13 +58,13 @@ public class ModelPegawai {
     private String provinsi;
     @SerializedName("kode_pos")
     @Expose
-    private Object kodePos;
+    private String kodePos;
     @SerializedName("no_telepon_1")
     @Expose
     private String noTelepon1;
     @SerializedName("no_telepon_2")
     @Expose
-    private Object noTelepon2;
+    private String noTelepon2;
     @SerializedName("golongan_darah")
     @Expose
     private String golonganDarah;
@@ -72,19 +73,19 @@ public class ModelPegawai {
     private Integer statusKepegawaianId;
     @SerializedName("jenis_kepegawaian_id")
     @Expose
-    private Integer jenisKepegawaianId;
+    private String jenisKepegawaianId;
     @SerializedName("nomor_karpeg")
     @Expose
-    private Object nomorKarpeg;
+    private String nomorKarpeg;
     @SerializedName("nomor_kartu_askes")
     @Expose
-    private Object nomorKartuAskes;
+    private String nomorKartuAskes;
     @SerializedName("nomor_kartu_taspen")
     @Expose
-    private Object nomorKartuTaspen;
+    private String nomorKartuTaspen;
     @SerializedName("nomor_karis_karsu")
     @Expose
-    private Object nomorKarisKarsu;
+    private String nomorKarisKarsu;
     @SerializedName("npwp")
     @Expose
     private String npwp;
@@ -108,16 +109,16 @@ public class ModelPegawai {
     private String skCpnsTanggalCpns;
     @SerializedName("kode_pangkat_cpns")
     @Expose
-    private Integer kodePangkatCpns;
+    private String kodePangkatCpns;
     @SerializedName("tmt_cpns")
     @Expose
     private String tmtCpns;
     @SerializedName("masa_kerja_tahun_cpns")
     @Expose
-    private Object masaKerjaTahunCpns;
+    private String masaKerjaTahunCpns;
     @SerializedName("masa_kerja_bulan_cpns")
     @Expose
-    private Object masaKerjaBulanCpns;
+    private String masaKerjaBulanCpns;
     @SerializedName("pejabat_yang_menetapkan_pns")
     @Expose
     private String pejabatYangMenetapkanPns;
@@ -144,10 +145,10 @@ public class ModelPegawai {
     private String masaKerjaBulanPns;
     @SerializedName("tinggi_keterangan_badan")
     @Expose
-    private Integer tinggiKeteranganBadan;
+    private String tinggiKeteranganBadan;
     @SerializedName("berat_badan_keterangan_badan")
     @Expose
-    private Integer beratBadanKeteranganBadan;
+    private String beratBadanKeteranganBadan;
     @SerializedName("rambut_keterangan_badan")
     @Expose
     private String rambutKeteranganBadan;
@@ -168,13 +169,13 @@ public class ModelPegawai {
     private String kegemaran1;
     @SerializedName("kegemaran_2")
     @Expose
-    private Object kegemaran2;
+    private String kegemaran2;
     @SerializedName("kegemaran_3")
     @Expose
-    private Object kegemaran3;
+    private String kegemaran3;
     @SerializedName("photo")
     @Expose
-    private Object photo;
+    private String photo;
     @SerializedName("status_aktif_pegawai")
     @Expose
     private Integer statusAktifPegawai;
@@ -186,10 +187,31 @@ public class ModelPegawai {
     private String kodeJenisKepegawaianRl4;
     @SerializedName("masa_kerja_honorer")
     @Expose
-    private Integer masaKerjaHonorer;
+    private String masaKerjaHonorer;
     @SerializedName("tipe_user")
     @Expose
     private Integer tipeUser;
+    @SerializedName("kode_dokter_maping_simrs")
+    @Expose
+    private String kodeDokterMapingSimrs;
+    @SerializedName("pro")
+    @Expose
+    private String pro;
+    @SerializedName("kabupaten")
+    @Expose
+    private String kabupaten;
+    @SerializedName("keca")
+    @Expose
+    private String keca;
+    @SerializedName("kelurahan")
+    @Expose
+    private String kelurahan;
+    @SerializedName("statusKep")
+    @Expose
+    private String statusKep;
+    @SerializedName("agma")
+    @Expose
+    private String agma;
 
     public Integer getPegawaiId() {
         return pegawaiId;
@@ -327,11 +349,11 @@ public class ModelPegawai {
         this.provinsi = provinsi;
     }
 
-    public Object getKodePos() {
+    public String getKodePos() {
         return kodePos;
     }
 
-    public void setKodePos(Object kodePos) {
+    public void setKodePos(String kodePos) {
         this.kodePos = kodePos;
     }
 
@@ -343,11 +365,11 @@ public class ModelPegawai {
         this.noTelepon1 = noTelepon1;
     }
 
-    public Object getNoTelepon2() {
+    public String getNoTelepon2() {
         return noTelepon2;
     }
 
-    public void setNoTelepon2(Object noTelepon2) {
+    public void setNoTelepon2(String noTelepon2) {
         this.noTelepon2 = noTelepon2;
     }
 
@@ -367,43 +389,43 @@ public class ModelPegawai {
         this.statusKepegawaianId = statusKepegawaianId;
     }
 
-    public Integer getJenisKepegawaianId() {
+    public String getJenisKepegawaianId() {
         return jenisKepegawaianId;
     }
 
-    public void setJenisKepegawaianId(Integer jenisKepegawaianId) {
+    public void setJenisKepegawaianId(String jenisKepegawaianId) {
         this.jenisKepegawaianId = jenisKepegawaianId;
     }
 
-    public Object getNomorKarpeg() {
+    public String getNomorKarpeg() {
         return nomorKarpeg;
     }
 
-    public void setNomorKarpeg(Object nomorKarpeg) {
+    public void setNomorKarpeg(String nomorKarpeg) {
         this.nomorKarpeg = nomorKarpeg;
     }
 
-    public Object getNomorKartuAskes() {
+    public String getNomorKartuAskes() {
         return nomorKartuAskes;
     }
 
-    public void setNomorKartuAskes(Object nomorKartuAskes) {
+    public void setNomorKartuAskes(String nomorKartuAskes) {
         this.nomorKartuAskes = nomorKartuAskes;
     }
 
-    public Object getNomorKartuTaspen() {
+    public String getNomorKartuTaspen() {
         return nomorKartuTaspen;
     }
 
-    public void setNomorKartuTaspen(Object nomorKartuTaspen) {
+    public void setNomorKartuTaspen(String nomorKartuTaspen) {
         this.nomorKartuTaspen = nomorKartuTaspen;
     }
 
-    public Object getNomorKarisKarsu() {
+    public String getNomorKarisKarsu() {
         return nomorKarisKarsu;
     }
 
-    public void setNomorKarisKarsu(Object nomorKarisKarsu) {
+    public void setNomorKarisKarsu(String nomorKarisKarsu) {
         this.nomorKarisKarsu = nomorKarisKarsu;
     }
 
@@ -463,11 +485,11 @@ public class ModelPegawai {
         this.skCpnsTanggalCpns = skCpnsTanggalCpns;
     }
 
-    public Integer getKodePangkatCpns() {
+    public String getKodePangkatCpns() {
         return kodePangkatCpns;
     }
 
-    public void setKodePangkatCpns(Integer kodePangkatCpns) {
+    public void setKodePangkatCpns(String kodePangkatCpns) {
         this.kodePangkatCpns = kodePangkatCpns;
     }
 
@@ -479,19 +501,19 @@ public class ModelPegawai {
         this.tmtCpns = tmtCpns;
     }
 
-    public Object getMasaKerjaTahunCpns() {
+    public String getMasaKerjaTahunCpns() {
         return masaKerjaTahunCpns;
     }
 
-    public void setMasaKerjaTahunCpns(Object masaKerjaTahunCpns) {
+    public void setMasaKerjaTahunCpns(String masaKerjaTahunCpns) {
         this.masaKerjaTahunCpns = masaKerjaTahunCpns;
     }
 
-    public Object getMasaKerjaBulanCpns() {
+    public String getMasaKerjaBulanCpns() {
         return masaKerjaBulanCpns;
     }
 
-    public void setMasaKerjaBulanCpns(Object masaKerjaBulanCpns) {
+    public void setMasaKerjaBulanCpns(String masaKerjaBulanCpns) {
         this.masaKerjaBulanCpns = masaKerjaBulanCpns;
     }
 
@@ -559,19 +581,19 @@ public class ModelPegawai {
         this.masaKerjaBulanPns = masaKerjaBulanPns;
     }
 
-    public Integer getTinggiKeteranganBadan() {
+    public String getTinggiKeteranganBadan() {
         return tinggiKeteranganBadan;
     }
 
-    public void setTinggiKeteranganBadan(Integer tinggiKeteranganBadan) {
+    public void setTinggiKeteranganBadan(String tinggiKeteranganBadan) {
         this.tinggiKeteranganBadan = tinggiKeteranganBadan;
     }
 
-    public Integer getBeratBadanKeteranganBadan() {
+    public String getBeratBadanKeteranganBadan() {
         return beratBadanKeteranganBadan;
     }
 
-    public void setBeratBadanKeteranganBadan(Integer beratBadanKeteranganBadan) {
+    public void setBeratBadanKeteranganBadan(String beratBadanKeteranganBadan) {
         this.beratBadanKeteranganBadan = beratBadanKeteranganBadan;
     }
 
@@ -623,27 +645,27 @@ public class ModelPegawai {
         this.kegemaran1 = kegemaran1;
     }
 
-    public Object getKegemaran2() {
+    public String getKegemaran2() {
         return kegemaran2;
     }
 
-    public void setKegemaran2(Object kegemaran2) {
+    public void setKegemaran2(String kegemaran2) {
         this.kegemaran2 = kegemaran2;
     }
 
-    public Object getKegemaran3() {
+    public String getKegemaran3() {
         return kegemaran3;
     }
 
-    public void setKegemaran3(Object kegemaran3) {
+    public void setKegemaran3(String kegemaran3) {
         this.kegemaran3 = kegemaran3;
     }
 
-    public Object getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Object photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
@@ -671,11 +693,11 @@ public class ModelPegawai {
         this.kodeJenisKepegawaianRl4 = kodeJenisKepegawaianRl4;
     }
 
-    public Integer getMasaKerjaHonorer() {
+    public String getMasaKerjaHonorer() {
         return masaKerjaHonorer;
     }
 
-    public void setMasaKerjaHonorer(Integer masaKerjaHonorer) {
+    public void setMasaKerjaHonorer(String masaKerjaHonorer) {
         this.masaKerjaHonorer = masaKerjaHonorer;
     }
 
@@ -687,4 +709,59 @@ public class ModelPegawai {
         this.tipeUser = tipeUser;
     }
 
+    public String getKodeDokterMapingSimrs() {
+        return kodeDokterMapingSimrs;
+    }
+
+    public void setKodeDokterMapingSimrs(String kodeDokterMapingSimrs) {
+        this.kodeDokterMapingSimrs = kodeDokterMapingSimrs;
+    }
+
+    public String getPro() {
+        return pro;
+    }
+
+    public void setPro(String pro) {
+        this.pro = pro;
+    }
+
+    public String getKabupaten() {
+        return kabupaten;
+    }
+
+    public void setKabupaten(String kabupaten) {
+        this.kabupaten = kabupaten;
+    }
+
+    public String getKeca() {
+        return keca;
+    }
+
+    public void setKeca(String keca) {
+        this.keca = keca;
+    }
+
+    public String getKelurahan() {
+        return kelurahan;
+    }
+
+    public void setKelurahan(String kelurahan) {
+        this.kelurahan = kelurahan;
+    }
+
+    public String getStatusKep() {
+        return statusKep;
+    }
+
+    public void setStatusKep(String statusKep) {
+        this.statusKep = statusKep;
+    }
+
+    public String getAgma() {
+        return agma;
+    }
+
+    public void setAgma(String agma) {
+        this.agma = agma;
+    }
 }

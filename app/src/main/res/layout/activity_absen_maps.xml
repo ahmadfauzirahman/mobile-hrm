@@ -44,7 +44,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="@dimen/row_padding"
-                        android:fontFamily="@font/robotobold"
+                        android:fontFamily="@font/quicksandbold"
                         android:text="Jadwal Kerja"
                         android:textColor="#000"
                         android:textSize="15dp" />
@@ -54,31 +54,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_toRightOf="@id/djadwalKerja"
-                        android:fontFamily="@font/robotomedium"
+                        android:fontFamily="@font/quicksandsemibold"
                         android:text="Sen, 5 Oktober 2020"
                         android:textSize="15dp">
 
                     </TextView>
 
-                    <TextView
-                        android:id="@+id/dWaktuRangeKerja"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/djadwalKerja"
-                        android:layout_marginTop="@dimen/mar_20"
-                        android:fontFamily="@font/robotoblack"
-                        android:gravity="center"
-                        android:text="07:30 AM . 15:00 PM"
-                        android:textColor="#000"
-                        android:textSize="25dp"></TextView>
+
 
                     <TextView
                         android:id="@+id/dJamKerjaKeterangan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/dWaktuRangeKerja"
+                        android:layout_below="@id/disiJadwalKerja"
                         android:layout_marginTop="@dimen/mar_20"
-                        android:fontFamily="@font/robotomedium"
+                        android:fontFamily="@font/quicksandmedium"
                         android:gravity="center"
                         android:text="Office Hours"
                         android:textSize="17dp"></TextView>
@@ -107,6 +97,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginRight="@dimen/mar_10"
                             android:background="#7FA2FA"
+                            android:fontFamily="@font/quicksandmedium"
                             android:text="Check In"
                             android:textColor="@color/white"></Button>
 
@@ -114,6 +105,7 @@
                             android:id="@+id/chekOut"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:fontFamily="@font/quicksandmedium"
                             android:background="@color/placeholder_bg"
                             android:text="Check Out"
                             android:textColor="#000">

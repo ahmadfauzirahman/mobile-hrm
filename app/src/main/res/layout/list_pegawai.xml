@@ -20,15 +20,14 @@
             android:layout_width="@dimen/thumbnail"
             android:layout_height="@dimen/thumbnail"
             android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/row_padding"
-        />
+            android:layout_marginRight="@dimen/row_padding" />
 
         <TextView
             android:id="@+id/mnamaPegawai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/thumbnail"
-            android:fontFamily="sans-serif-medium"
+            android:fontFamily="@font/quicksandsemibold"
             android:text="Ahmad Fauzi Rahman"
             android:textColor="@color/contact_name"
             android:textSize="@dimen/contact_name" />
@@ -39,7 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/mnamaPegawai"
             android:layout_toRightOf="@id/thumbnail"
+            android:fontFamily="@font/quicksandlight"
             android:text="11451105806"
+
             android:textColor="@color/contact_number"
             android:textSize="@dimen/contact_number" />
     </RelativeLayout>

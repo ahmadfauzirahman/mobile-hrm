@@ -31,6 +31,7 @@ public class LoginActivity extends AppCompatActivity {
             ApiClient.getClient().create(ApiInterface.class);
     SessionManager sessionManager;
     private String TAG = this.getClass().getName();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

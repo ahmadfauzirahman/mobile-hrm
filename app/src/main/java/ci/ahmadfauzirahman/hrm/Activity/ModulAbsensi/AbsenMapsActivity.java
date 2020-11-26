@@ -3,6 +3,7 @@ package ci.ahmadfauzirahman.hrm.Activity.ModulAbsensi;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,19 +17,27 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import ci.ahmadfauzirahman.hrm.R;
+import ci.ahmadfauzirahman.hrm.Response.AbsensiResponse;
+import ci.ahmadfauzirahman.hrm.Rest.ApiClient;
+import ci.ahmadfauzirahman.hrm.Rest.ApiInterface;
 import ci.ahmadfauzirahman.hrm.Utils.SessionManager;
 import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class AbsenMapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-
+    private String TAG = this.getClass().getName();
     String mLatitudeRSUD = "0.5233203";
     String mLongitudeRSUD = "101.451869";
     String pLatitude, pLongitude, kode;
     double hasilJarak;
     TextView chekIn, chekOut;
     SessionManager sessionManager;
+    ApiInterface apiService =
+            ApiClient.getClient().create(ApiInterface.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,18 +55,18 @@ public class AbsenMapsActivity extends FragmentActivity implements OnMapReadyCal
         hasilJarak = hitungjarak(pLatitude, pLongitude, mLatitudeRSUD, mLongitudeRSUD);
         System.out.println("Hasil Jarak " + hasilJarak);
 //        String h = "Kurang Dari 1 KM";
-        if (hasilJarak < 1.0) {
-            new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.SUCCESS_TYPE)
-                    .setTitleText("Berhasil")
-                    .setContentText("Anda DiJarak Presensi ")
-                    .show();
-        } else {
-            new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.ERROR_TYPE)
-                    .setTitleText("Oops... Anda Dimana Ya!!")
-                    .setContentText("Jarak Anda Dari RSUD " + hasilJarak + " Km")
-                    .show();
-//            Toast.makeText(getApplicationContext(), "Jarak RSUD DARI LOKASI SAYA SEKARANG " + +hasilJarak + " Km", Toast.LENGTH_SHORT).show();
-        }
+//        if (hasilJarak < 1.0) {
+//            new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+//                    .setTitleText("Berhasil")
+//                    .setContentText("Anda DiJarak Presensi ")
+//                    .show();
+//        } else {
+//            new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.ERROR_TYPE)
+//                    .setTitleText("Oops... Anda Dimana Ya!!")
+//                    .setContentText("Jarak Anda Dari RSUD " + hasilJarak + " Km")
+//                    .show();
+////            Toast.makeText(getApplicationContext(), "Jarak RSUD DARI LOKASI SAYA SEKARANG " + +hasilJarak + " Km", Toast.LENGTH_SHORT).show();
+//        }
         System.out.println("Latitude " + pLatitude + " Longitude " + pLongitude);
 
 
@@ -75,10 +84,73 @@ public class AbsenMapsActivity extends FragmentActivity implements OnMapReadyCal
                 absenMasuk(kode, pLatitude, pLongitude);
             }
         });
+
+        chekOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                absenKeluar(kode, pLatitude, pLongitude);
+            }
+        });
     }
 
-    private void absenMasuk(String kode, String pLatitude, String pLongitude) {
+    private void absenKeluar(String kode, String pLatitude, String pLongitude) {
+        apiService.absenPuLang(kode, pLatitude, pLongitude).enqueue(new Callback<AbsensiResponse>() {
+            @Override
+            public void onResponse(Call<AbsensiResponse> call, Response<AbsensiResponse> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().getCon()) {
+                        new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Hai")
+                                .setContentText(response.body().getMsg())
+                                .show();
+                    } else {
+                        new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops... Maaf Boy!!")
+                                .setContentText(response.body().getMsg())
+                                .show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Opps, Terjadi Masalah Hubungi Admin EDP", Toast.LENGTH_SHORT).show();
+                }
 
+            }
+
+            @Override
+            public void onFailure(Call<AbsensiResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Opss, Something Wrong", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, t.getLocalizedMessage());
+            }
+        });
+    }
+
+    private void absenMasuk(String nip, String pLatitude, String pLongitude) {
+        apiService.absenMasuk(nip, pLatitude, pLongitude).enqueue(new Callback<AbsensiResponse>() {
+            @Override
+            public void onResponse(Call<AbsensiResponse> call, Response<AbsensiResponse> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().getCon()) {
+                        new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Hai")
+                                .setContentText(response.body().getMsg())
+                                .show();
+                    } else {
+                        new SweetAlertDialog(AbsenMapsActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Oops... Maaf Boy!!")
+                                .setContentText(response.body().getMsg())
+                                .show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "Opps, Terjadi Masalah Hubungi Admin EDP", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<AbsensiResponse> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Opss Something Wrong", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, t.getLocalizedMessage());
+            }
+        });
     }
 
     private static double hitungjarak(String slat1, String slng1, String slat2, String slng2) {

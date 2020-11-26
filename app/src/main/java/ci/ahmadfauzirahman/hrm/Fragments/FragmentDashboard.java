@@ -1,15 +1,18 @@
 package ci.ahmadfauzirahman.hrm.Fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import ci.ahmadfauzirahman.hrm.Activity.DetailPage.DetailMyTeamActivity;
 import ci.ahmadfauzirahman.hrm.Activity.IKI.IkiActivity;
@@ -31,7 +34,7 @@ public class FragmentDashboard extends Fragment {
     private String mParam1;
     private String mParam2;
     View view;
-    CardView cardAmbilAbsensi,cardStruktur,cardIki;
+    CardView cardAmbilAbsensi, cardStruktur, cardIki;
     LinearLayout logo;
 
     public FragmentDashboard() {
@@ -72,17 +75,17 @@ public class FragmentDashboard extends Fragment {
         view = inflater.inflate(R.layout.fragment_dashboard, container, false);
         cardAmbilAbsensi = view.findViewById(R.id.cardAmbilAbsensi);
         cardStruktur = view.findViewById(R.id.cardStruktur);
-        cardIki = view.findViewById(R.id.cardIki);
+//        cardIki = view.findViewById(R.id.cardIki);
         System.out.println("Ini Dashboard");
 
 
-        cardIki.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), IkiActivity.class);
-                startActivity(intent);
-            }
-        });
+//        cardIki.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), IkiActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         cardStruktur.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -94,10 +97,26 @@ public class FragmentDashboard extends Fragment {
         cardAmbilAbsensi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(getContext(), OptionsAbsenActivity.class);
+                Intent intent = new Intent(getContext(), OptionsAbsenActivity.class);
                 startActivity(intent);
             }
         });
+        if (isMockSettingsON(getContext())) {
+            Toast.makeText(getContext(), "Aplikasi Mendeteksi Adanya Fake GPS Atau Mock Location Dalam Kondisi Enable", Toast.LENGTH_SHORT).show();
+        } else {
+//            Toast.makeText(getContext(), String.valueOf(isMockSettingsON(getContext())) + "Ini", Toast.LENGTH_SHORT).show();
+            System.out.println("Tidak Aktif");
+        }
+
         return view;
+    }
+
+    public static boolean isMockSettingsON(Context context) {
+        // returns true if mock location enabled, false if not enabled.
+        if (Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ALLOW_MOCK_LOCATION).equals("0"))
+            return false;
+        else
+            return true;
     }
 }
